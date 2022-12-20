@@ -1,0 +1,11 @@
+Package: gfun
+Type: Package
+Title: Supporting Functions for Data Analysis by 'ZHGai'
+Version: 0.1
+Author: Zhonghui Gai
+Maintainer: ZhonghuiGai <zhgai@aliyun.com>
+Description: Miscellaneous functions commonly used in data analysis and packages maintained by "Zhonghui Gai"
+License: GLP-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.2
