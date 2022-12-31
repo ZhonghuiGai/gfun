@@ -46,18 +46,10 @@ data_read <- function(path, rowname = TRUE, colname = TRUE, sheet = 1,
   unlist(ifelse(is.logical(rowname) & isTRUE(rowname), 1,
        ifelse(is.logical(rowname) & !isTRUE(rowname), list(NULL), list(rowname))))
 }
-.read_jpg <- function(path, plot.margin = c(1, 1, 1, 1), ...) {
+.read_jpg <- function(path, ...) {
   jpg <- jpeg::readJPEG(source = path)
   p <- ggplot() +
     annotation_raster(raster = jpg, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf) +
-    theme(panel.background = element_rect(fill = "transparent", colour = NA),
-          plot.background = element_rect(fill = "transparent", colour = NA),
-          legend.key = element_rect(fill = "transparent", colour = NA),
-          legend.background = element_rect(fill = "transparent", colour = NA),
-          panel.grid.minor = element_blank(),
-          panel.grid.major = element_blank(),
-          plot.margin = unit(plot.margin, "mm"),
-          plot.tag = element_text(size = 25, face = "bold", family = "serif",
-                                  vjust = -1, hjust = 0))
+    theme_nothing()
   return(p)
 }

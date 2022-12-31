@@ -251,3 +251,21 @@ theme_foundation <- function(base_size = 13) {
               text = element_text(colour = "black"))
 }
 
+theme_nothing <- function(){
+  theme_void() %+replace%
+    theme(plot.margin = unit(c(0, 1, -0.2, -0.2), "lines"),
+          plot.tag = element_text(size = 25, face = "bold", family = "serif",
+                                  vjust = -1, hjust = 0))
+}
+
+theme_transparant <- function(){
+  theme(panel.background = element_rect(fill = "transparent", colour = NA),
+        plot.background = element_rect(fill = "transparent", colour = NA),
+        legend.key = element_rect(fill = "transparent", colour = NA),
+        legend.background = element_rect(fill = "transparent", colour = NA),
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank(),
+        plot.margin = unit(c(2, 2, 2, 2), "mm"),
+        plot.tag = element_text(size = 25, face = "bold", family = "serif",
+                                vjust = -1, hjust = 0))
+}
