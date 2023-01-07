@@ -20,9 +20,13 @@
 #' p1 <- table_plot(table = df, theme = "violet", row = 2:3, col = 2, size = 16, color = "darkblue")
 #' gfun:::Greek_alphabet()  |> groutable::dt2()
 #' p <- ggplot(data=  data.frame(x=1:24,y=1:24), aes(x = x,y = y)) +
-#'   geom_point(shape = gfun:::Greek_alphabet()$lower, size = 8) +
-#'   theme_prism(angle = 0)+
-#'   xlab("IL1\u03b2") + ylab("δφυαμΣ")
+#' geom_point(shape = gfun:::Greek_alphabet()$lower, size = 8) +
+#'   theme_prism(angle = 0) +
+#'   ylab(bquote(bold(paste("TNF ",alpha^2," (pg/mL)")))) +
+#'   xlab(bquote(Assimilation (mu~ mol ~CO[2]~ m^-2~s^-1))) +#
+#'   labs(title = expression(bold(log[10]^2)),
+#'        subtitle = "δφυαμΣ\u03b2",
+#'        caption = expression(bold(adonis) (bold(italic(R))[3]^bold(`2`))))
 #' pp <- p + ggpp::annotate("plot", x = 12, y = 45, label = p2) +
 #'   ggpp::annotate("plot", x = 2, y = 45, label = p1)
 #' grDevices::dev.off()

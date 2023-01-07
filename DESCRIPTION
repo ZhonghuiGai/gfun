@@ -16,7 +16,6 @@ Collate:
     'data_write.R'
     'init.R'
     'pheatmap.R'
-    'save_plot.R'
     'utilities.R'
     'table_plot.R'
     'theme.R'
