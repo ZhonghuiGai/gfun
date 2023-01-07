@@ -940,24 +940,10 @@ identity2 = function(x, ...){
   invisible(structure(list(tree_row = tree_row, tree_col = tree_col, kmeans = km, gtable = gt), class = "pheatmap"))
 }
 
-
 #' @method grid.draw pheatmap
 #' @export
-grid.draw.pheatmap <- function(x, recording = TRUE) {
-  grid.draw(x$gtable)
-}
+grid.draw.pheatmap <- function(x, recording = TRUE) {grid.draw(x$gtable)}
 
 #' @method print pheatmap
 #' @export
-print.pheatmap <- function(x, ...) {
-  grid.draw(x)
-}
-
-as.ggplot <- function(plot) {
-  ggplot(data.frame(x = 0:1, y = 0:1), aes_(x = ~x, y = ~y)) +
-    geom_blank() +
-    scale_x_continuous(limits = c(0,1), expand = c(0, 0)) +
-    scale_y_continuous(limits = c(0,1), expand = c(0, 0)) +
-    annotation_custom(plot$gtable, xmin = 0, xmax = 1, ymin = 0, ymax = 1)  +
-    theme_void()
-}
+print.pheatmap <- function(x, ...) {grid.draw(x)}

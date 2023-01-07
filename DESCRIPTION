@@ -9,3 +9,14 @@ License: GLP-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.2
+Collate: 
+    'data_clean.R'
+    'data_long.R'
+    'data_read.R'
+    'data_write.R'
+    'init.R'
+    'pheatmap.R'
+    'save_plot.R'
+    'utilities.R'
+    'table_plot.R'
+    'theme.R'
