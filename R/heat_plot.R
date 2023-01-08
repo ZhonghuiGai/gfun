@@ -20,7 +20,7 @@
 #'
 #' @export
 #' @author Zhonghui Gai
-pheatmap <- function(mat, cluster_cols = T, cluster_rows = T, display_numbers = FALSE,
+heat_plot <- function(mat, cluster_cols = T, cluster_rows = T, display_numbers = FALSE,
                      color = c("#3c9eff","gray99","#ff445d"),
                      treeheight_row = 20, treeheight_col = 20,
                      cellwidth = NA, cellheight = NA,

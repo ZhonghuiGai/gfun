@@ -27,8 +27,8 @@
 #'   labs(title = expression(bold(log[10]^2)),
 #'        subtitle = "δφυαμΣ\u03b2",
 #'        caption = expression(bold(adonis) (bold(italic(R))[3]^bold(`2`))))
-#' pp <- p + ggpp::annotate("plot", x = 12, y = 45, label = p2) +
-#'   ggpp::annotate("plot", x = 2, y = 45, label = p1)
+#' pp <- p + anno_plot("plot", x = 12, y = 45, label = p2) +
+#'   anno_plot("plot", x = 2, y = 45, label = p1)
 #' grDevices::dev.off()
 #' ggsave("image.pdf", width = 8, height = 5, device = cairo_pdf, plot = pp)
 table_plot <- function(table, theme = "grey", size = 10,
