@@ -7,7 +7,7 @@
 #'
 #' @return a data frame
 #' @export
-#'
+#' @author Zhonghui Gai
 #' @examples
 #' data_pat(x = c(24, 35, 46), group = c("C", "T", "L"))
 #' lst <- list(w1 = c(24, 35, 46, 51), w2 = c(1, 4, 8, 12))
