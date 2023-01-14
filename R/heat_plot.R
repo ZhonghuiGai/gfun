@@ -1,4 +1,4 @@
-#' A swap function of pheatmap, the inputs can be one or two matix
+#' A swap function of pheatmap
 #'
 #' @param mat numeric matrix of the values to be plotted.
 #' @param cluster_cols boolean values determining if columns should be clustered or hclust object.

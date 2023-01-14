@@ -2,7 +2,7 @@
 % Please edit documentation in R/heat_plot.R
 \name{heat_plot}
 \alias{heat_plot}
-\title{A swap function of pheatmap, the inputs can be one or two matix}
+\title{A swap function of pheatmap}
 \usage{
 heat_plot(
   mat,
@@ -60,7 +60,7 @@ heat_plot(
 \item{...}{other param}
 }
 \description{
-A swap function of pheatmap, the inputs can be one or two matix
+A swap function of pheatmap
 }
 \author{
 Zhonghui Gai

@@ -44,7 +44,7 @@ Annotations ggplot2 plot
 p <- ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point()
 p + anno_plot("text", x = 5, y = 32, label = "Some text")
 p + anno_plot("label", x = c(2, 5), y = c(15, 32), label = c("A", "B"))
-p + anno_plot("plot", x = 5.5, y = 34, label = p + theme_bw(9))
+p + anno_plot("plot", x = 5.5, y = 34, label = p + theme_bw(9), vp.width = 0.3, vp.height = 0.4)
 p + anno_plot("rect", xmin = 3, xmax = 4.2, ymin = -Inf, ymax = Inf, alpha = .2, fill = "darkred")
 p + anno_plot("segment", x = 2.5, xend = 4, y = 15, yend = 25, colour = "blue")
 p + anno_plot("pointrange", x = 3.5, y = 20, ymin = 12, ymax = 28, colour = "red", size = 1.5)

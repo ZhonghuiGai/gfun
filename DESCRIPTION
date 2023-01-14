@@ -20,3 +20,4 @@ Collate:
     'table_plot.R'
     'theme.R'
     'anno_plot.R'
+    'data_pat.R'
