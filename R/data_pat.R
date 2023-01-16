@@ -10,13 +10,16 @@
 #' @author Zhonghui Gai
 #' @examples
 #' data_pat(x = c(24, 35, 46), group = c("C", "T", "L"))
-#' lst <- list(w1 = c(24, 35, 46, 51), w2 = c(1, 4, 8, 12))
+#' lst <- list(w1 = c(1, 2, 3, 4), w2 = c(5, 6, 7, 8), w3 = c(9, 10, 11, 12))
 #' data <- data_pat(x = lst, group = c("C", "T", "L", "B"), n = 10, sd = 0.1)
 #' aggregate(. ~ group, data = data, mean)
 #' pat_barplot(data, variable = "w1") +
-#' ggpub::add_signif(comparisons = list(c("C", "T"), c("T", "L")),
-#'                   y_position = c(48, 58)) +
-#' ylab(bquote(bold(paste("TNF ",alpha^2," (pg/mL)"))))
+#'   ggpub::add_signif(comparisons = list(c("C", "T"), c("T", "L")),
+#'                     y_position = c(3, 4)) +
+#'   ylab(bquote(bold(paste("TNF ",alpha^2," (pg/mL)"))))
+#' pat_point(data, fun = mean_se) + ylab(bquote(As (mu~mol ~CO[2]~ s^-1))) +
+#'   annotate("text", x = c(2, 3), y = c(3, 7), label = c("***", "**"), size = 6) +
+#' theme(legend.position = c(0.5, 0.1))
 
 data_pat <- function(x, group, n, sd, ...) UseMethod("data_pat")
 
@@ -72,5 +75,34 @@ pat_barplot <- function(data, variable = NULL, jitter = TRUE, border = FALSE,
     scale_fill_grey() + theme(legend.position = 0)
   if (jitter)
     p <- p + geom_jitter(width = 0.25, fill = "white", shape = 21, size = 1.8)
+  return(p)
+}
+
+#' @export
+pat_point <- function(data, fun = mean_sdl, size = 3, angle = 0, border = FALSE,
+                      label = TRUE){
+  dt <- data_long(data, cols = "group")
+  values <- c(15:18, 1, 6)[1:length(levels(data$group))]
+  p <- ggplot(dt, aes(x = name, y = value, group = group, shape = group)) +
+    xlab(NULL) + ylab(NULL) +
+    stat_summary(geom = "errorbar", fun.data = fun, width = 0.1, show.legend = FALSE) +
+    stat_summary(geom = "line", fun = mean, size = 0.5, show.legend = FALSE) +
+    stat_summary(geom = "point", fun = mean, size = size) +
+    theme_pub(angle = angle, border = border) + scale_color_grey() +
+    scale_shape_manual(values = values)
+  if (label) {
+    data_label <- aggregate(. ~ group, data = data, mean)
+    data_label <- data_label[, c(1, ncol(data_label))]
+    data_label <- data_long(data_label, cols = "group")
+    p <- p + ggrepel::geom_label_repel(data = data_label,
+                                       aes(x = name, y = value, label = group),
+                                       nudge_x = 0.3, nudge_y = 0.3,
+                                       na.rm = TRUE, arrow = arrow(length = unit(0.01, "npc")),
+                                       colour="black", segment.colour="gray50",
+                                       box.padding = 0, label.padding = 0.1,
+                                       point.padding = 0.5, family = "serif",
+                                       fontface = "bold", label.size = NA) +
+      theme(legend.position = 0)
+  }
   return(p)
 }

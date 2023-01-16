@@ -23,11 +23,17 @@ Create random data for test functions
 }
 \examples{
 data_pat(x = c(24, 35, 46), group = c("C", "T", "L"))
-lst <- list(w1 = c(24, 35, 46, 51), w2 = c(1, 4, 8, 12))
+lst <- list(w1 = c(1, 2, 3, 4), w2 = c(5, 6, 7, 8), w3 = c(9, 10, 11, 12))
 data <- data_pat(x = lst, group = c("C", "T", "L", "B"), n = 10, sd = 0.1)
 aggregate(. ~ group, data = data, mean)
 pat_barplot(data, variable = "w1") +
-ggpub::add_signif(comparisons = list(c("C", "T"), c("T", "L")),
-                  y_position = c(48, 58)) +
-ylab(bquote(bold(paste("TNF ",alpha^2," (pg/mL)"))))
+  ggpub::add_signif(comparisons = list(c("C", "T"), c("T", "L")),
+                    y_position = c(3, 4)) +
+  ylab(bquote(bold(paste("TNF ",alpha^2," (pg/mL)"))))
+pat_point(data, fun = mean_se) + ylab(bquote(As (mu~mol ~CO[2]~ s^-1))) +
+  annotate("text", x = c(2, 3), y = c(3, 7), label = c("***", "**"), size = 6) +
+theme(legend.position = c(0.5, 0.1))
+}
+\author{
+Zhonghui Gai
 }
