@@ -1,0 +1,14 @@
+##gff-version 3
+#!gff-spec-version 1.21
+#!processor NCBI annotwriter
+##sequence-region CP002061.1 1 21875
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=551115
+#CP002061.1	Genbank	region	1	21875	.	+	.	ID=CP002061.1:1..21875;Dbxref=taxon:551115;Is_circular=true;Name=pAzo02;gbkey=Src;genome=plasmid;mol_type=genomic DNA;plasmid-name=pAzo02;strain=0708
+CP002061.1	Genbank	gene	481	1320	.	-	.	ID=gene-Aazo_5344;Name=Aazo_5344;gbkey=Gene;gene_biotype=protein_coding;locus_tag=Aazo_5344
+CP002061.1	Genbank	CDS	481	1320	.	-	0	ID=cds-ADI66309.1;Parent=gene-Aazo_5344;Dbxref=InterPro:IPR005094,NCBI_GP:ADI66309.1;Name=ADI66309.1;Note=PFAM: Relaxase/mobilization nuclease family protein~KEGG: cyc:PCC7424_3874 relaxase/mobilization nuclease family protein;gbkey=CDS;inference=protein motif:PFAM:PF03432;locus_tag=Aazo_5344;product=Relaxase/mobilization nuclease family protein;protein_id=ADI66309.1;transl_table=11
+CP002061.1	Genbank	gene	1295	1711	.	-	.	ID=gene-Aazo_5345;Name=Aazo_5345;gbkey=Gene;gene_biotype=protein_coding;locus_tag=Aazo_5345
+CP002061.1	Genbank	CDS	18994	19098	.	+	0	ID=cds-ADI66319.1;Parent=gene-Aazo_5357;Dbxref=NCBI_GP:ADI66319.1;Name=ADI66319.1;gbkey=CDS;inference=ab initio prediction:Prodigal:1.4;locus_tag=Aazo_5357;product=hypothetical protein;protein_id=ADI66319.1;transl_table=11
+## gff-version 3
+#! gff-spec-version 1.21
+##FASTA
+CP002061.1	Genbank	CDS	18994	19098	.	+	0	ID=cds-ADI66319.1;Parent=gene-Aazo_5357;Dbxref=NCBI_GP:ADI66319.1;Name=ADI66319.1;gbkey=CDS;inference=ab initio prediction:Prodigal:1.4;locus_tag=Aazo_5357;product=hypothetical protein;protein_id=ADI66319.1;transl_table=11
